@@ -8,4 +8,8 @@ public class Coins {
 	public Coins(Map<Coin, Integer> coins) {
 		this.coins = coins;
 	}
+
+	public Map<Coin, Integer> findAll() {
+		return coins;
+	}
 }

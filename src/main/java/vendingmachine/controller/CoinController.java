@@ -47,4 +47,8 @@ public class CoinController {
 		}
 		return coins;
 	}
+
+	public void showHoldingCoins() {
+		outputView.printHoldingCoins(coins.findAll());
+	}
 }

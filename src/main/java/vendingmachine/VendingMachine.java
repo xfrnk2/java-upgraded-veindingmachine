@@ -11,5 +11,6 @@ public class VendingMachine {
 
 	public void run() {
 		coinController.setupHoldingCoins();
+		coinController.showHoldingCoins();
 	}
 }
