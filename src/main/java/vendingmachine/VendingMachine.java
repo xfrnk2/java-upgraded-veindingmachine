@@ -3,6 +3,7 @@ package vendingmachine;
 import vendingmachine.controller.CoinController;
 import vendingmachine.controller.MoneyController;
 import vendingmachine.controller.ProductController;
+import vendingmachine.domain.Product;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
 
@@ -18,5 +19,22 @@ public class VendingMachine {
 		coinController.showHoldingCoins();
 		productController.setupProducts();
 		moneyController.setupMoney();
+		sell();
+	}
+
+	private void sell() {
+		while (moneyController.getCurrentMoney() > productController.getLeastProductCost()
+			&& !productController.isAllProductOutOfStock()) {
+			try {
+				outputView.printCurrentMoney(moneyController.getCurrentMoney());
+				outputView.printEnterProductNameToBuyRequest();
+				String productName = inputView.scanProductName();
+				Product product = productController.findProductByName(productName);
+				productController.isSellable(product, moneyController.getCurrentMoney());
+				moneyController.pay(product.getCost());
+			} catch (IllegalArgumentException e) {
+				outputView.printError(e.getMessage());
+			}
+		}
 	}
 }

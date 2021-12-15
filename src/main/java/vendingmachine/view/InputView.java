@@ -36,4 +36,8 @@ public class InputView {
 		}
 		return productList;
 	}
+
+	public String scanProductName() {
+		return Console.readLine();
+	}
 }

@@ -9,7 +9,9 @@ public class OutputView {
 	public static final String HOLDING_AMOUNT_REQUEST = "자판기가 보유하고 있는 금액을 입력해 주세요.";
 	public static final String ENTER_PRODUCTS_REQUEST = "상품명과 가격, 수량을 입력해 주세요.";
 	public static final String INSERT_MONEY_REQUEST = "투입 금액을 입력해 주세요.";
+	public static final String ENTER_PRODUCT_NAME_TO_BUY_REQUEST = "구매할 상품명을 입력해 주세요.";
 	public static final String COIN_AMOUNT_AND_NUMBER = "%d원 - %d개";
+	public static final String CURRENT_MONEY = "투입 금액: %d원";
 
 	public void printError(String error) {
 		System.out.printf(ERROR_PREFIX, error);
@@ -37,4 +39,13 @@ public class OutputView {
 	public void printInsertMoneyRequest() {
 		System.out.println(INSERT_MONEY_REQUEST);
 	}
+
+	public void printCurrentMoney(final int amount) {
+		System.out.println(String.format(CURRENT_MONEY, amount));
+	}
+
+	public void printEnterProductNameToBuyRequest() {
+		System.out.println(ENTER_PRODUCT_NAME_TO_BUY_REQUEST);
+	}
+
 }

@@ -32,4 +32,13 @@ public class MoneyController {
 			return enterMoney();
 		}
 	}
+
+	public int getCurrentMoney() {
+		return money.getMoney();
+	}
+
+
+	public void pay(final int amount) {
+		money.reduce(amount);
+	}
 }
