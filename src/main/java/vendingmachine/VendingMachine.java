@@ -45,6 +45,9 @@ public class VendingMachine {
 	private void getChanges() {
 		int money = moneyController.getCurrentMoney();
 		Map<Coin, Integer> changes = coinController.exportChanges(money);
+		if (changes.isEmpty()){
+			return;
+		}
 		outputView.printCurrentMoney(money);
 		outputView.printChanges(changes);
 	}
