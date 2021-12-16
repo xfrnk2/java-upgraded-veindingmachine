@@ -68,8 +68,10 @@ public class CoinController {
 		Map<Coin, Integer> changes = new LinkedHashMap<>();
 		for (Map.Entry<Coin, Integer> coin : getRestCoins().entrySet()) {
 			int changeNumber = getAvailableChangeNumber(coin.getKey().getAmount(), coin.getValue(), totalAmount);
-			changes.put(coin.getKey(), changeNumber);
-			totalAmount -= coin.getKey().getAmount() * changeNumber;
+			if (ZERO < changeNumber) {
+				changes.put(coin.getKey(), changeNumber);
+				totalAmount -= coin.getKey().getAmount() * changeNumber;
+			}
 		}
 		coins.reduce(changes);
 		return changes;
