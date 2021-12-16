@@ -29,6 +29,7 @@ public class OutputView {
 	}
 
 	public void printHoldingCoins(Map<Coin, Integer> coins) {
+		printNewLine();
 		System.out.println(HOLDING_COINS);
 		for (Map.Entry<Coin, Integer> coin : coins.entrySet()) {
 			System.out.println(String.format(COIN_AMOUNT_AND_NUMBER, coin.getKey().getAmount(), coin.getValue()));
@@ -36,14 +37,17 @@ public class OutputView {
 	}
 
 	public void printEnterProductsRequest() {
+		printNewLine();
 		System.out.println(ENTER_PRODUCTS_REQUEST);
 	}
 
 	public void printInsertMoneyRequest() {
+		printNewLine();
 		System.out.println(INSERT_MONEY_REQUEST);
 	}
 
 	public void printCurrentMoney(final int amount) {
+		printNewLine();
 		System.out.println(String.format(CURRENT_MONEY, amount));
 	}
 
