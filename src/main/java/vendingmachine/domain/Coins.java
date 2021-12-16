@@ -12,4 +12,10 @@ public class Coins {
 	public Map<Coin, Integer> findAll() {
 		return coins;
 	}
+
+	public void reduce(Map<Coin, Integer> changes) {
+		for (Coin coin : changes.keySet()) {
+			coins.put(coin, coins.get(coin) - changes.get(coin));
+		}
+	}
 }

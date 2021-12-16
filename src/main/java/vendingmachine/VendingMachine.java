@@ -1,8 +1,11 @@
 package vendingmachine;
 
+import java.util.Map;
+
 import vendingmachine.controller.CoinController;
 import vendingmachine.controller.MoneyController;
 import vendingmachine.controller.ProductController;
+import vendingmachine.domain.Coin;
 import vendingmachine.domain.Product;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
@@ -20,6 +23,7 @@ public class VendingMachine {
 		productController.setupProducts();
 		moneyController.setupMoney();
 		sell();
+		getChanges();
 	}
 
 	private void sell() {
@@ -36,5 +40,10 @@ public class VendingMachine {
 				outputView.printError(e.getMessage());
 			}
 		}
+	}
+
+	private void getChanges() {
+		int money = moneyController.getCurrentMoney();
+		Map<Coin, Integer> coins = coinController.exportChanges(money);
 	}
 }
