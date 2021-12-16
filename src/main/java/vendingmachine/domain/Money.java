@@ -5,7 +5,6 @@ public class Money {
 
 	public Money(int money) {
 		this.money = money;
-		System.out.println(money);
 	}
 
 	public int getMoney() {
