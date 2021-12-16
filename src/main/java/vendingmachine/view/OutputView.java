@@ -6,6 +6,7 @@ import vendingmachine.domain.Coin;
 
 public class OutputView {
 	public static final String ERROR_PREFIX = "[ERROR] %s";
+	public static final String HOLDING_COINS = "자판기가 보유한 동전";
 	public static final String HOLDING_AMOUNT_REQUEST = "자판기가 보유하고 있는 금액을 입력해 주세요.";
 	public static final String ENTER_PRODUCTS_REQUEST = "상품명과 가격, 수량을 입력해 주세요.";
 	public static final String INSERT_MONEY_REQUEST = "투입 금액을 입력해 주세요.";
@@ -28,6 +29,7 @@ public class OutputView {
 	}
 
 	public void printHoldingCoins(Map<Coin, Integer> coins) {
+		System.out.println(HOLDING_COINS);
 		for (Map.Entry<Coin, Integer> coin : coins.entrySet()) {
 			System.out.println(String.format(COIN_AMOUNT_AND_NUMBER, coin.getKey().getAmount(), coin.getValue()));
 		}
