@@ -12,6 +12,7 @@ public class OutputView {
 	public static final String ENTER_PRODUCT_NAME_TO_BUY_REQUEST = "구매할 상품명을 입력해 주세요.";
 	public static final String COIN_AMOUNT_AND_NUMBER = "%d원 - %d개";
 	public static final String CURRENT_MONEY = "투입 금액: %d원";
+	public static final String CHANGES = "잔돈";
 
 	public void printError(String error) {
 		System.out.printf(ERROR_PREFIX, error);
@@ -27,7 +28,7 @@ public class OutputView {
 	}
 
 	public void printHoldingCoins(Map<Coin, Integer> coins) {
-		for (Map.Entry<Coin, Integer> coin: coins.entrySet()){
+		for (Map.Entry<Coin, Integer> coin : coins.entrySet()) {
 			System.out.println(String.format(COIN_AMOUNT_AND_NUMBER, coin.getKey().getAmount(), coin.getValue()));
 		}
 	}
@@ -48,4 +49,10 @@ public class OutputView {
 		System.out.println(ENTER_PRODUCT_NAME_TO_BUY_REQUEST);
 	}
 
+	public void printChanges(Map<Coin, Integer> changes) {
+		System.out.println(CHANGES);
+		for (Map.Entry<Coin, Integer> coin : changes.entrySet()) {
+			System.out.println(String.format(COIN_AMOUNT_AND_NUMBER, coin.getKey().getAmount(), coin.getValue()));
+		}
+	}
 }
